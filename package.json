@@ -1,0 +1,31 @@
+{
+  "name": "project3",
+  "version": "1.0.0",
+  "description": "Photon Particle Prototype!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hectorcoronado/project3.git"
+  },
+  "keywords": [
+    "Photon",
+    "Particle",
+    "Prototype",
+    "Morse"
+  ],
+  "author": "Hector Coronado",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hectorcoronado/project3/issues"
+  },
+  "homepage": "https://github.com/hectorcoronado/project3",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.19",
+    "nodemon": "^1.9.2"
+  }
+}
