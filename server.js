@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var express = require('express'),
     app = express(),
     bodyParser = require('body-parser');
@@ -25,12 +27,14 @@ app.get('/', function homepage (req, res) {
  */
 
 
- 
+
 
  // redirect all other paths to index
  app.get('*', function homepage (req, res) {
    res.sendFile(__dirname + '/views/index.html');
  });
+
+
 
 /**********
  * SERVER *
