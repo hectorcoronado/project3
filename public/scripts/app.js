@@ -1,14 +1,12 @@
 $(document).on('ready', function() {
   console.log('app.js is loaded');
 
+  var socket = io.connect('http://localhost:3000');
 
-  var clicks = 0;
-
-  $('#counter').on('click', 'button', function(){
-    clicks +=1;
-    console.log(clicks);
-    return clicks;
+  socket.on('news', function(data){
+    console.log(data);
   });
+
 
 });
 

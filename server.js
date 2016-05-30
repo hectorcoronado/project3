@@ -27,17 +27,17 @@ app.get('/', function homepage (req, res) {
 ////////////////////////
 
 
- // redirect all other paths to index
- app.get('*', function homepage (req, res) {
-   res.sendFile(__dirname + '/views/index.html');
- });
+// redirect all other paths to index
+app.get('*', function homepage (req, res) {
+ res.sendFile(__dirname + '/views/index.html');
+});
 
 
 /////////////
 // SERVER  //
 /////////////
 
-app.listen(process.env.PORT || 3000, function () {
+var server = app.listen(process.env.PORT || 3000, function () {
   console.log('Express server is running on http://localhost:3000/');
 });
 
@@ -50,6 +50,7 @@ require('dotenv').config();
 
 var five = require("johnny-five"),
     Photon = require("particle-io");
+    socketio = require("socket.io");
 
 var board = new five.Board({
   io: new Photon({
@@ -57,6 +58,7 @@ var board = new five.Board({
     deviceId: process.env.PHOTON_DEVICE_ID
   })
 });
+
 
 board.on("ready", function() {
   console.log("Board Ready");
@@ -78,4 +80,12 @@ board.on("ready", function() {
     console.log( "Buttton released" );
   });
 
+});
+
+
+var io = socketio.listen(server),
+    pin = "D2";
+
+io.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
 });
