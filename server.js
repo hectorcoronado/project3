@@ -63,24 +63,35 @@ var board = new five.Board({
 board.on("ready", function() {
   console.log("Board Ready");
 
-  var led = new five.Led("D7");
-  led.on();
+  var led = new five.Led("D7"),
+      button = new five.Button("D2"),
+      startTime,
+      endTime,
+      duration;
 
-  var button = new five.Button("D2");
+  led.off();
+
+  button.on("press", function() {
+    console.log( "Button pressed" );
+    startTime = Date.now();
+    console.log ( "Start Time is: ", startTime );
+  });
 
   button.on("hold", function() {
     console.log( "Button held" );
   });
 
-  button.on("press", function() {
-    console.log( "Button pressed" );
-  });
-
   button.on("release", function() {
-    console.log( "Buttton released" );
+    endTime = Date.now();
+    duration = endTime - startTime;
+    console.log ( "End time was: ", endTime , "and duration is: ", duration );
   });
 
 });
+
+///////////////
+// SOCKET IO //
+///////////////
 
 
 var io = socketio.listen(server),
@@ -88,4 +99,7 @@ var io = socketio.listen(server),
 
 io.on('connection', function (socket) {
   socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
 });

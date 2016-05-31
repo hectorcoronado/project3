@@ -5,6 +5,7 @@ $(document).on('ready', function() {
 
   socket.on('news', function(data){
     console.log(data);
+    socket.emit('my other event', { my : 'data'});
   });
 
 
