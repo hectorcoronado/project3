@@ -69,7 +69,7 @@ board.on("ready", function() {
       endTime,
       duration;
 
-  led.off();
+  led.on();
 
   button.on("press", function() {
     console.log( "Button pressed" );
