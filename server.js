@@ -12,14 +12,14 @@ app.use(express.static(__dirname + '/public'));
 //
 // var controllers = require('./controllers');
 //
-// //////////////
-// //  ROUTES  //
-// //////////////
-//
-// ////////////////////
-// // HTML Endpoints //
-// ////////////////////
-//
+//////////////
+//  ROUTES  //
+//////////////
+
+////////////////////
+// HTML Endpoints //
+////////////////////
+
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
@@ -27,18 +27,18 @@ app.get('/', function homepage (req, res) {
 app.get('/events', function(req, res){
   res.send(events);
 });
-//
-// ////////////////////////
-// // JSON API Endpoints //
-// ////////////////////////
-//
-//
-// // redirect all other paths to index
-// app.get('*', function homepage (req, res) {
-//  res.sendFile(__dirname + '/views/index.html');
-// });
-//
-//
+
+////////////////////////
+// JSON API Endpoints //
+////////////////////////
+
+
+// redirect all other paths to index
+app.get('*', function homepage (req, res) {
+ res.sendFile(__dirname + '/views/index.html');
+});
+
+
 /////////////
 // SERVER  //
 /////////////
@@ -98,26 +98,3 @@ board.on("ready", function() {
   });
 
 });
-
-
-///////////////
-// SOCKET IO //
-///////////////
-//
-//
-// var socketio = require("socket.io"),
-//     io = socketio.listen(server);
-//
-// io.on('connection', function (socket) {
-//
-//
-//   console.log ( "Start Time is: ", startTime );
-//   socket.emit('news', { hello: 'world' });
-//
-//   socket.emit('news', { hello: 'world' });
-//
-//   // socket.emit('news', { hello: 'world' });
-//   socket.on('my other event', function (data) {
-//     console.log(data);
-//   });
-// });
