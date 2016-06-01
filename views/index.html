@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
 
+  <link rel="shortcut icon" href="images/favicon.ico">
+
   <!-- materialize css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
 
   <!-- google icon fonts -->
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
 
   <!-- custom styles -->
   <link rel="stylesheet" type="text/css" href="styles/styles.css">
@@ -20,17 +22,23 @@
   <!-- materialize js -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 
+  <!-- socket.io -->
+  <!-- <script type="text/javascript" src="/socket.io/socket.io.js"></script> -->
 
   <!-- custom script -->
-  <script type="text/javascript" src="scripts/routes.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
+
 
   <title>Morse</title>
 
 </head>
 <body>
-  <div class="container">
-    <div class="row">
+  <div class="container" id="counter-target">
+    <h1>Hello, World!</h1>
+      <div id="hello">
+        <p>Try to get a bot to act on this page</p>
+      </div>
+      <div id="target"></div>
     </div>
   </div>
 </body>
