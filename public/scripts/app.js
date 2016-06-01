@@ -5,7 +5,7 @@ $(document).on('ready', function() {
     $.get('/events', function(data){
       $('#target').html(data);
     });
-  }, 1000);
+  }, 500);
 
 
 });

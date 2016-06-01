@@ -29,6 +29,7 @@
     "johnny-five": "^0.9.51",
     "mongodb": "^2.1.21",
     "mongoose": "^4.4.19",
+    "morse": "^0.1.0",
     "nodemon": "^1.9.2",
     "particle-io": "^0.12.0",
     "request": "^2.72.0"

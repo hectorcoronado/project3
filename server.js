@@ -2,7 +2,7 @@
 var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
-    request = require('request');
+    morse = require('morse');
 
 var events = [];
 
@@ -72,29 +72,31 @@ board.on("ready", function() {
       button = new five.Button("D2"),
       startTime,
       endTime,
-      duration;
+      pushDuration,
+      timeBetweenPush,
+      word = '';
 
   led.on();
 
   button.on("press", function() {
     console.log( "Button pressed" );
     startTime = Date.now();
-    request.post('https://ping-me-johnny.herokuapp.com/pings', function(){
-      console.log('ping...');
-      events.push('pressed');
-    });
   });
 
   button.on("hold", function() {
     console.log( "Button held" );
-    events.push('held');
   });
 
   button.on("release", function() {
     endTime = Date.now();
-    duration = endTime - startTime;
-    console.log ( "End time was: ", endTime , "and duration is: ", duration );
-    events.push('released');
+    pushDuration = endTime - startTime;
+    console.log ( "End time was: ", endTime , "and duration is: ", pushDuration );
+    if ( pushDuration > 500 ) {
+      word += "-";
+      console.log (word);
+    } else {
+        word += ".";
+        console.log (word);
+    }
   });
-
 });
