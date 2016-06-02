@@ -2,8 +2,8 @@ $(document).on('ready', function() {
   console.log('app.js is loaded');
 
   setInterval(function(){
-    $.get('/events', function(data){
-      $('#target').html(data);
+    $.get('/letters', function(data){
+      $('#letter-target').html(data);
     });
   }, 500);
 
