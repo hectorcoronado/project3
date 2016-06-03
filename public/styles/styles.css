@@ -1,7 +1,14 @@
-/*font-family: 'Special Elite', cursive;
-               'Archivo Black', sans-serif;
+/*font-family: 'Righteous', cursive;
                'Monoton', cursive;
                'Comfortaa', cursive;*/
+
+h3 {
+  font-family: "Comfortaa", cursive;
+}
+
+body {
+  background-color: #D2FEFF;
+}
 
 .jumbotron {
   font-family: 'Monoton', cursive;
@@ -14,14 +21,26 @@
   overflow: hidden;
   margin-bottom: auto;
 }
+
 .btn {
   margin-top: 0.5em;
   background-color: #6C8271;
   font-family: "Comfortaa", cursive;
 }
+
 .navbar {
-  background-color: #CBBEB5;
+  background-color: #95C4CE;
 }
-h3 {
-  font-family: "Comfortaa", cursive;
+
+.m-y-2 {
+  margin-top: 7em;
+}
+
+#sub-title {
+  font-family: 'Comfortaa', cursive;
+}
+
+#footer {
+  font-family: 'Righteous', cursive;
+  text-align: right;
 }
