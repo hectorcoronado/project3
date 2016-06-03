@@ -86,7 +86,6 @@ board.on("ready", function() {
     startTime,
     endTime,
     pushDuration,
-    timeBetweenPush,
     letter = "",
     word = "";
 
@@ -128,28 +127,12 @@ board.on("ready", function() {
       console.log("You added a dot to your letter: ", letter);
     }
 
-    // Word constructor
-    if ((timeBetweenPush > 4000) && (word !== "")) {
-      word += " ";
-      console.log("Added WORD: ", word);
-      console.log("TBP: ", timeBetweenPush);
-      words.push(word);
-      word = "";
-      letter = "";
-    } else if ((timeBetweenPush > 2000) && (letter !== "")) {
-      word += letter;
-      letter += " ";
-      console.log("Added LETTER: ", letter, " to word");
-      console.log("TBP: ", timeBetweenPush);
-      letters.push(letter);
-      letter = "";
-    }
-
     button2.on("press", function(){
       letter += " ";
       word += letter;
       console.log("Added LETTER: ", letter, " to word");
       letters.push(letter);
+      letter = "";
     });
 
     button2.on("hold", function(){
