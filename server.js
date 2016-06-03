@@ -137,7 +137,6 @@ board.on("ready", function() {
     button2.on("hold", function(){
       if (word !== ""){
         console.log("Added WORD: ", word);
-        console.log("TBP: ", timeBetweenPush);
         words.push(word);
         word = " ";
         letter = "";
