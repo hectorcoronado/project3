@@ -5,8 +5,8 @@ var express = require('express'),
 
 var letters = [],
   words = [],
-  decodedWords = [];
-dotsDashes = [];
+  decodedWords = [],
+  dotsDashes = [];
 
 app.use(express.static(__dirname + '/public'));
 // app.use(bodyParser.urlencoded({ extended: true }));
@@ -112,7 +112,7 @@ board.on("ready", function() {
     var dot = ".",
       dash = "-";
 
-    // Letter constructor
+    // Letter constructing
     if (pushDuration > 3000) {
       letter = " ";
     } else if ((pushDuration > 500) && (pushDuration < 2999)) {
@@ -126,6 +126,7 @@ board.on("ready", function() {
       dotsDashes.push(dot);
     }
 
+    // Word constructing
     button2.on("press", function() {
       word += letter;
       console.log("Added LETTER to word: ", letter);
@@ -134,6 +135,7 @@ board.on("ready", function() {
       dotsDashes = [];
     });
 
+    // Phrase constructing
     button2.on("hold", function() {
       if (word !== "") {
         console.log("Added WORD: ", word);
