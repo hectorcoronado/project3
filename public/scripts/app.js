@@ -4,6 +4,10 @@ $(document).on('ready', function() {
 
   setInterval(function(){
 
+    $.get('/dotsdashes', function(data){
+      $('#dotsdashes-target').html(data);
+    });
+
     $.get('/letters', function(data){
       $('#letter-target').html(data);
     });
@@ -16,7 +20,7 @@ $(document).on('ready', function() {
       $('#decoded-target').html(data);
     });
 
-  }, 500);
+  }, 200);
 
 
 
