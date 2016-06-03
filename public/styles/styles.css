@@ -1,27 +1,27 @@
-/*font-family: 'Special Elite', cursive;*/
-/*font-family: 'Archivo Black', sans-serif;*/
-/*font-family: 'Monoton', cursive;*/
+/*font-family: 'Special Elite', cursive;
+               'Archivo Black', sans-serif;
+               'Monoton', cursive;
+               'Comfortaa', cursive;*/
 
 .jumbotron {
- font-family: 'Monoton', cursive;
- color: #D4F5BA;
- position: relative;
- background: url(http://66.media.tumblr.com/cc83ef90cac7d839cf619aae7e8dd30e/tumblr_o1ddegWoqH1sfie3io1_1280.jpg) center center;
- width: 100%;
- min-height: 400px;
- background-size: cover;
- overflow: hidden;
- margin-bottom: auto;
+  font-family: 'Monoton', cursive;
+  color: #D4F5BA;
+  position: relative;
+  background: url(http://66.media.tumblr.com/cc83ef90cac7d839cf619aae7e8dd30e/tumblr_o1ddegWoqH1sfie3io1_1280.jpg) center center;
+  width: 100%;
+  min-height: 400px;
+  background-size: cover;
+  overflow: hidden;
+  margin-bottom: auto;
 }
 .btn {
- margin-top: 0.5em;
- background-color: #6C8271;
+  margin-top: 0.5em;
+  background-color: #6C8271;
+  font-family: "Comfortaa", cursive;
 }
-
-.navbar{
-  background-color: #1E434D;
+.navbar {
+  background-color: #CBBEB5;
 }
-
-h3{
-  font-family: "Archivo Black", sans-serif; 
+h3 {
+  font-family: "Comfortaa", cursive;
 }
