@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <base href="/">
 
   <link rel="shortcut icon" href="images/favicon.ico">
 
-  <!-- materialize css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-  <!-- google icon fonts -->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- google fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Monoton|Archivo+Black|Special+Elite' rel='stylesheet' type='text/css'>
 
   <!-- custom styles -->
   <link rel="stylesheet" type="text/css" href="styles/styles.css">
@@ -19,33 +20,66 @@
   <!-- jquery -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 
-  <!-- materialize js -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
   <!-- custom script -->
   <script type="text/javascript" src="scripts/app.js"></script>
-
 
   <title>Morse</title>
 
 </head>
 
 <body>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-1">Hello, World!</h1>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="btn btn-default-right" data-toggle="modal" data-target="#basicModal">Morse Charts
+        </button>
+      </div>
+    </div>
+  </nav>
+
   <div class="container">
 
-    <h1>Hello, World!</h1>
-
-      <div class="inputs">
-        <p>These are your morse letters so far: <span id="letter-target"></span> </p>
+    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Close</button>
+            <h4 class="modal-title" id="myModalLabel">Morse Charts</h4>
+          </div>
+          <div class="modal-body">
+            <img src="http://post.queensu.ca/~dudleyl/seafarers/morse_diagram_v4.gif" alt="Morse Chart 1" />
+            <img src="http://alina_stefanescu.typepad.com/.a/6a00d8341ce39f53ef01a3fca05502970b-550wi" alt="Morse Chart 2" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class="inputs">
-        <p>These are your words in morse so far: <span id="word-target"></span> </p>
-      </div>
+    <div class="inputs">
+      <h3>These are your encoded morse letters: <span id="letter-target"></span> </h3>
+    </div>
 
-      <div class="outputs">
-        <p>These are your decoded words: <span id="decoded-target"></span></p>
-      </div>
+    <div class="inputs">
+      <h3>These are your encoded words: <span id="word-target"></span> </h3>
+    </div>
+
+    <div class="outputs">
+      <h3>And these are your decoded words: <span id="decoded-target"></span></h3>
+    </div>
+
+    <div id="container" style="width: 300px; height: 300px; margin: 0 auto"></div>
 
   </div>
 </body>

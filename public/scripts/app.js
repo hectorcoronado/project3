@@ -1,6 +1,7 @@
 $(document).on('ready', function() {
   console.log('app.js is loaded');
 
+
   setInterval(function(){
 
     $.get('/letters', function(data){
@@ -16,6 +17,7 @@ $(document).on('ready', function() {
     });
 
   }, 500);
+
 
 
 });
