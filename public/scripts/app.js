@@ -11,9 +11,9 @@ $(document).on('ready', function() {
       $('#word-target').html(data);
     });
 
-    // // $.get('/decodedwords', function(data){
-    //   $('#decoded-target').html(data);
-    // });
+    $.get('/decodedwords', function(data){
+      $('#decoded-target').html(data);
+    });
 
   }, 500);
 

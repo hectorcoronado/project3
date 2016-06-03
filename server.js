@@ -32,7 +32,7 @@ app.get('/words', function(req, res) {
 });
 
 app.get('/decodedwords', function(req, res) {
-  res.send(decodedwords);
+  res.send(decodedWords);
 });
 
 // redirect all other paths to index
