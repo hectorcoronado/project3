@@ -2,10 +2,20 @@ $(document).on('ready', function() {
   console.log('app.js is loaded');
 
   setInterval(function(){
-    $.get('/events', function(data){
-      $('#target').html(data);
+
+    $.get('/letters', function(data){
+      $('#letter-target').html(data);
     });
-  }, 1000);
+
+    $.get('/words', function(data){
+      $('#word-target').html(data);
+    });
+
+    // // $.get('/decodedwords', function(data){
+    //   $('#decoded-target').html(data);
+    // });
+
+  }, 500);
 
 
 });
