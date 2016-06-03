@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
   <!-- google fonts -->
-  <link href='https://fonts.googleapis.com/css?family=Monoton|Archivo+Black|Special+Elite|Comfortaa' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Monoton|Righteous|Comfortaa' rel='stylesheet' type='text/css'>
 
   <!-- custom styles -->
   <link rel="stylesheet" type="text/css" href="styles/styles.css">
@@ -35,21 +35,68 @@
   <div class="jumbotron">
     <div class="container">
       <h1 class="display-1">Hello, World!</h1>
+      <h3>.... . .-.. .-.. --- --..-- / .-- --- .-. .-.. -..</h3>
+
+      <hr class="m-y-2">
+      <p id="sub-title">An online morse code decoder (and eventually encoder as well!).</p>
     </div>
   </div>
 
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
-        <button class="btn btn-default-right" data-toggle="modal" data-target="#basicModal">Morse Charts
+
+        <button class="btn btn-default-right" data-toggle="modal" data-target="#aboutModal">About
         </button>
+
+        <button class="btn btn-default-right" data-toggle="modal" data-target="#chartsModal">Morse Charts
+        </button>
+
       </div>
     </div>
   </nav>
 
   <div class="container">
 
-    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Close</button>
+            <h4 class="modal-title" id="myModalLabel">About This Project</h4>
+          </div>
+          <div class="modal-body">
+            <p>Fairly simple to use (times are in milliseconds):</p>
+            <ol>
+              <li>
+                Tap on button 1 for less than 500ms to add a dot (the one on the middle of the board).
+              </li>
+              <li>
+                Tap on it for more than 500ms for a dash.
+              </li>
+              <li>
+                If you're done making a letter, tap the 2nd buton (on the edge of the board).
+              </li>
+              <li>
+                If you've entered a complete word, hold button 2 for 1000ms.
+              </li>
+              <li>
+                If you want to decode what you've entered, hold button 1 for 3000ms.
+              </li>
+            </ol>
+            <div>
+              <img src="http://cdn.instructables.com/FRT/H0EZ/I2AQXPRT/FRTH0EZI2AQXPRT.MEDIUM.jpg" />
+              <img src="./public/images/morsephoton.png" height="100" width="100">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="chartsModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -83,9 +130,16 @@
       <h3>And these are your decoded words: <span id="decoded-target"></span></h3>
     </div>
 
-    <div id="container" style="width: 300px; height: 300px; margin: 0 auto"></div>
 
   </div>
+
+  <nav class="navbar navbar-full navbar-fixed-bottom navbar-light">
+    <div class="container">
+      <p id="footer">
+        Made by Hector Coronado.
+      </p>
+    </div>
+  </nav>
 </body>
 
 </html>
