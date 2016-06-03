@@ -128,21 +128,20 @@ board.on("ready", function() {
     }
 
     button2.on("press", function(){
-      letter += " ";
       word += letter;
       console.log("Added LETTER: ", letter, " to word");
       letters.push(letter);
-      letter = "";
+      letter = " ";
     });
 
     button2.on("hold", function(){
       if (word !== ""){
-        word += " ";
         console.log("Added WORD: ", word);
         console.log("TBP: ", timeBetweenPush);
         words.push(word);
-        word = "";
+        word = " ";
         letter = "";
+        letters = [];
       }
     });
 
