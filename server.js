@@ -1,12 +1,11 @@
-
 var express = require('express'),
-    app = express(),
-    bodyParser = require('body-parser'),
-    morse = require('morse');
+  app = express(),
+  bodyParser = require('body-parser'),
+  morse = require('morse');
 
 var letters = [],
-    words = [],
-    phrases = [];
+  words = [],
+  decodedWords = [];
 
 app.use(express.static(__dirname + '/public'));
 // app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,17 +19,25 @@ app.use(express.static(__dirname + '/public'));
 // HTML Endpoints //
 ////////////////////
 
-app.get('/', function homepage (req, res) {
+app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/letters', function(req, res){
+app.get('/letters', function(req, res) {
   res.send(letters);
 });
 
+app.get('/words', function(req, res) {
+  res.send(words);
+});
+
+app.get('/decodedwords', function(req, res) {
+  res.send(decodedwords);
+});
+
 // redirect all other paths to index
-app.get('*', function homepage (req, res) {
- res.sendFile(__dirname + '/views/index.html');
+app.get('*', function homepage(req, res) {
+  res.sendFile(__dirname + '/views/index.html');
 });
 
 ////////////////////////
@@ -42,7 +49,7 @@ app.get('*', function homepage (req, res) {
 // SERVER  //
 /////////////
 
-var server = app.listen(process.env.PORT || 3000, function () {
+var server = app.listen(process.env.PORT || 3000, function() {
   console.log('Express server is running on http://localhost:3000/');
 });
 
@@ -54,7 +61,7 @@ var server = app.listen(process.env.PORT || 3000, function () {
 require('dotenv').config();
 
 var five = require("johnny-five"),
-    Photon = require("particle-io");
+  Photon = require("particle-io");
 
 var board = new five.Board({
   io: new Photon({
@@ -66,46 +73,96 @@ var board = new five.Board({
 
 board.on("ready", function() {
   console.log("Board Ready");
-  // events.push('ready');
+
   var led = new five.Led("D7"),
-      button = new five.Button("D2"),
-      startTime,
-      endTime,
-      pushDuration,
-      timeBetweenPush,
-      letter,
-      word,
-      phrase;
+    button1 = new five.Button({
+      pin: "D2",
+      holdtime: 3000
+    }),
+    button2 = new five.Button({
+      pin: "D0",
+      holdtime: 1000
+    }),
+    startTime,
+    endTime,
+    pushDuration,
+    timeBetweenPush,
+    letter = "",
+    word = "";
 
   led.on();
 
-  button.on("press", function() {
-    console.log( "Button pressed" );
+  button1.on("press", function() {
+    console.log("Button pressed");
+
     startTime = Date.now();
-    timeBetweenPush = startTime - endTime;
-    if ((timeBetweenPush > 2000 && letter !== "") && endTime !== null) {
-      console.log ("You added a letter to your word: ", letter , "and time between pushes was: ", timeBetweenPush);
-      word += word + letter + " ";
-      letters.push(letter);
-      letter = " ";
+
+    if (endTime) {
+      timeBetweenPush = startTime - endTime;
     }
+
   });
 
-  button.on("hold", function() {
-    console.log( "Button held" );
+  button1.on("hold", function() {
+    decodedWords = morse.decode(words);
+    console.log(decodedWords);
+    words = [];
   });
 
-  button.on("release", function() {
+  button1.on("release", function() {
     endTime = Date.now();
     pushDuration = endTime - startTime;
-    console.log ( "End time was: ", endTime , "and duration is: ", pushDuration );
-    if ( pushDuration > 500 ) {
-      letter += "-";
-      console.log ( "You added a dash to your letter: ", letter);
+    console.log("Push duration is: ", pushDuration);
+
+    // Morse characters
+    var dot = ".",
+        dash = "-";
+
+    // Letter constructor
+    if (pushDuration > 500) {
+      letter += dash;
+      console.log("You added a dash to your letter: ", letter);
+
     } else {
-        letter += ".";
-        console.log ( "You added a dot to your letter: ", letter);
+      letter += dot;
+      console.log("You added a dot to your letter: ", letter);
     }
 
+    // Word constructor
+    if ((timeBetweenPush > 4000) && (word !== "")) {
+      word += " ";
+      console.log("Added WORD: ", word);
+      console.log("TBP: ", timeBetweenPush);
+      words.push(word);
+      word = "";
+      letter = "";
+    } else if ((timeBetweenPush > 2000) && (letter !== "")) {
+      word += letter;
+      letter += " ";
+      console.log("Added LETTER: ", letter, " to word");
+      console.log("TBP: ", timeBetweenPush);
+      letters.push(letter);
+      letter = "";
+    }
+
+    button2.on("press", function(){
+      letter += " ";
+      word += letter;
+      console.log("Added LETTER: ", letter, " to word");
+      letters.push(letter);
+    });
+
+    button2.on("hold", function(){
+      if (word !== ""){
+        word += " ";
+        console.log("Added WORD: ", word);
+        console.log("TBP: ", timeBetweenPush);
+        words.push(word);
+        word = "";
+        letter = "";
+      }
+    });
+
   });
+
 });
