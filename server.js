@@ -6,7 +6,7 @@ var express = require('express'),
 var letters = [],
   words = [],
   decodedWords = [];
-  dotsDashes = [];
+dotsDashes = [];
 
 app.use(express.static(__dirname + '/public'));
 // app.use(bodyParser.urlencoded({ extended: true }));
@@ -93,13 +93,7 @@ board.on("ready", function() {
 
   button1.on("press", function() {
     console.log("Button pressed");
-
     startTime = Date.now();
-
-    if (endTime) {
-      timeBetweenPush = startTime - endTime;
-    }
-
   });
 
   button1.on("hold", function() {
@@ -116,10 +110,12 @@ board.on("ready", function() {
 
     // Morse characters
     var dot = ".",
-        dash = "-";
+      dash = "-";
 
     // Letter constructor
-    if (pushDuration > 500) {
+    if (pushDuration > 3000) {
+      letter = " ";
+    } else if ((pushDuration > 500) && (pushDuration < 2999)) {
       letter += dash;
       console.log("Added DASH to letter: ", letter);
       dotsDashes.push(dash);
@@ -130,7 +126,7 @@ board.on("ready", function() {
       dotsDashes.push(dot);
     }
 
-    button2.on("press", function(){
+    button2.on("press", function() {
       word += letter;
       console.log("Added LETTER to word: ", letter);
       letters.push(letter);
@@ -138,8 +134,8 @@ board.on("ready", function() {
       dotsDashes = [];
     });
 
-    button2.on("hold", function(){
-      if (word !== ""){
+    button2.on("hold", function() {
+      if (word !== "") {
         console.log("Added WORD: ", word);
         words.push(word);
         word = " ";
