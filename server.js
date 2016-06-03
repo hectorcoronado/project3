@@ -6,6 +6,7 @@ var express = require('express'),
 var letters = [],
   words = [],
   decodedWords = [];
+  dotsDashes = [];
 
 app.use(express.static(__dirname + '/public'));
 // app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,6 +22,10 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
+});
+
+app.get('/dotsdashes', function(req, res) {
+  res.send(dotsDashes);
 });
 
 app.get('/letters', function(req, res) {
@@ -40,11 +45,6 @@ app.get('*', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-////////////////////////
-// JSON API Endpoints //
-////////////////////////
-
-
 /////////////
 // SERVER  //
 /////////////
@@ -54,10 +54,10 @@ var server = app.listen(process.env.PORT || 3000, function() {
 });
 
 
-// /////////////////////////
-// //  PHOTON CONTROLLER  //
-// /////////////////////////
-//
+/////////////////////////
+//  PHOTON CONTROLLER  //
+/////////////////////////
+
 require('dotenv').config();
 
 var five = require("johnny-five"),
@@ -105,6 +105,7 @@ board.on("ready", function() {
   button1.on("hold", function() {
     decodedWords = morse.decode(words);
     console.log(decodedWords);
+    dotsDashes = [];
     words = [];
   });
 
@@ -120,18 +121,21 @@ board.on("ready", function() {
     // Letter constructor
     if (pushDuration > 500) {
       letter += dash;
-      console.log("You added a dash to your letter: ", letter);
+      console.log("Added DASH to letter: ", letter);
+      dotsDashes.push(dash);
 
     } else {
       letter += dot;
-      console.log("You added a dot to your letter: ", letter);
+      console.log("Added DOT to letter: ", letter);
+      dotsDashes.push(dot);
     }
 
     button2.on("press", function(){
       word += letter;
-      console.log("Added LETTER: ", letter, " to word");
+      console.log("Added LETTER to word: ", letter);
       letters.push(letter);
       letter = " ";
+      dotsDashes = [];
     });
 
     button2.on("hold", function(){
