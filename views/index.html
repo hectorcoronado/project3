@@ -32,6 +32,20 @@
 
 <body>
 
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header navbar-right">
+
+        <button class="btn btn-default-right" data-toggle="modal" data-target="#aboutModal">About
+        </button>
+
+        <button class="btn btn-default-right" data-toggle="modal" data-target="#chartsModal">Morse Chart
+        </button>
+
+      </div>
+    </div>
+  </nav>
+
   <div class="jumbotron">
     <div class="container">
       <h1 class="display-1">Hello, World!</h1>
@@ -42,19 +56,6 @@
     </div>
   </div>
 
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-
-        <button class="btn btn-default-right" data-toggle="modal" data-target="#aboutModal">About
-        </button>
-
-        <button class="btn btn-default-right" data-toggle="modal" data-target="#chartsModal">Morse Charts
-        </button>
-
-      </div>
-    </div>
-  </nav>
 
   <div class="container">
 
@@ -62,7 +63,6 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Close</button>
             <h4 class="modal-title" id="myModalLabel">About This Project</h4>
           </div>
           <div class="modal-body">
@@ -85,7 +85,7 @@
               </li>
             </ol>
             <div>
-              <img src="http://cdn.instructables.com/FRT/H0EZ/I2AQXPRT/FRTH0EZI2AQXPRT.MEDIUM.jpg" />
+              <img id="about-image" src="./images/morsephoton.png" alt="http://cdn.instructables.com/FRT/H0EZ/I2AQXPRT/FRTH0EZI2AQXPRT.MEDIUM.jpg" />
             </div>
           </div>
           <div class="modal-footer">
@@ -99,12 +99,10 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Close</button>
             <h4 class="modal-title" id="myModalLabel">Morse Charts</h4>
           </div>
           <div class="modal-body">
-            <img src="http://post.queensu.ca/~dudleyl/seafarers/morse_diagram_v4.gif" alt="Morse Chart 1" />
-            <img src="http://alina_stefanescu.typepad.com/.a/6a00d8341ce39f53ef01a3fca05502970b-550wi" alt="Morse Chart 2" />
+            <img src="http://alina_stefanescu.typepad.com/.a/6a00d8341ce39f53ef01a3fca05502970b-550wi" alt="Morse Chart" />
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -32,6 +32,23 @@ body {
   background-color: #95C4CE;
 }
 
+.modal-content {
+  font-family: "Comfortaa", cursive;
+}
+
+.modal-body {
+  background-color: #D2FEFF;
+}
+
+.modal-header {
+  background-color: #95C4CE;
+}
+
+.modal-footer {
+  background-color: #95C4CE;
+
+}
+
 .m-y-2 {
   margin-top: 7em;
 }
@@ -43,4 +60,12 @@ body {
 #footer {
   font-family: 'Righteous', cursive;
   text-align: right;
+}
+
+#about-image {
+  height: 200px;
+  width: 300px;
+  display: block;
+  margin: auto;
+
 }
