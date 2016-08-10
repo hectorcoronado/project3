@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base href="/">
+
+  <link rel="shortcut icon" href="images/favicon.ico">
+
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <!-- google fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Monoton|Righteous|Comfortaa' rel='stylesheet' type='text/css'>
+
+  <!-- custom styles -->
+  <link rel="stylesheet" type="text/css" href="styles/styles.css">
+
+  <!-- jquery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <!-- custom script -->
+  <script type="text/javascript" src="scripts/app.js"></script>
+
+  <title>Morse</title>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header navbar-right">
+
+        <button class="btn btn-default-right" data-toggle="modal" data-target="#aboutModal">About
+        </button>
+
+        <button class="btn btn-default-right" data-toggle="modal" data-target="#chartsModal">Morse Chart
+        </button>
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-1">Hello, World!</h1>
+      <h3>.... . .-.. .-.. --- --..-- / .-- --- .-. .-.. -..</h3>
+
+      <hr class="m-y-2">
+      <p id="sub-title">An online morse code decoder (and eventually encoder as well!).</p>
+    </div>
+  </div>
+
+
+  <div class="container">
+
+    <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">About This Project</h4>
+          </div>
+          <div class="modal-body">
+            <p>Fairly simple to use (times are in milliseconds):</p>
+            <ol>
+              <li>
+                Tap on button 1 for less than 500ms to add a dot (the one on the middle of the board).
+              </li>
+              <li>
+                Tap on it for more than 500ms for a dash.
+              </li>
+              <li>
+                If you're done making a letter, tap the 2nd buton (on the edge of the board).
+              </li>
+              <li>
+                If you've entered a complete word, hold button 2 for 1000ms.
+              </li>
+              <li>
+                If you want to decode what you've entered, hold button 1 for 3000ms.
+              </li>
+            </ol>
+            <div>
+              <img id="about-image" src="./images/morsephoton.png" alt="http://cdn.instructables.com/FRT/H0EZ/I2AQXPRT/FRTH0EZI2AQXPRT.MEDIUM.jpg" />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="chartsModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Morse Charts</h4>
+          </div>
+          <div class="modal-body">
+            <img src="http://alina_stefanescu.typepad.com/.a/6a00d8341ce39f53ef01a3fca05502970b-550wi" alt="Morse Chart" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="inputs">
+      <h3>These are the dots and dashes you have entered: <span id="dotsdashes-target"></span></h3>
+    </div>
+
+    <div class="inputs">
+      <h3>These are your encoded morse letters: <span id="letter-target"></span></h3>
+    </div>
+
+    <div class="inputs">
+      <h3>These are your encoded words: <span id="word-target"></span></h3>
+    </div>
+
+    <div class="outputs">
+      <h3>And these are your decoded words: <span id="decoded-target"></span></h3>
+    </div>
+
+
+  </div>
+
+  <nav class="navbar navbar-full navbar-fixed-bottom navbar-light">
+    <div class="container">
+      <p id="footer">
+        Made by Hector Coronado.
+      </p>
+    </div>
+  </nav>
+</body>
+
+</html>
