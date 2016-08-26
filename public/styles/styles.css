@@ -14,7 +14,7 @@ body {
   font-family: 'Monoton', cursive;
   color: #D4F5BA;
   position: relative;
-  background: url(http://66.media.tumblr.com/cc83ef90cac7d839cf619aae7e8dd30e/tumblr_o1ddegWoqH1sfie3io1_1280.jpg) center center;
+  background: url("/images/jumbotronimage.jpg") center center;
   width: 100%;
   min-height: 400px;
   background-size: cover;
